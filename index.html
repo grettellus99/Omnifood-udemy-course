@@ -5,6 +5,8 @@
   <!-- Crucial for media-queries -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <meta name="description" content="Omnifood is an AI-powered food subscription that will make you eat healthy again, 365 days per year. It's tailored to yor personal tastes and nutritional needs">
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +21,20 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   
-  <title>Omnifood</title>
+  <!-- JS code + import -->
+  <script defer src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+  <script defer src="js/script.js"></script>
+
+  <!-- Browser icon -->
+  <link rel="icon" href="img/favicon.png"/>
+  
+  <!-- Apple fav icon -->
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png"/>
+  
+  <!-- Android fav icon -->
+  <link rel="manifest" href="manifest.webmanifest"/>
+
+  <title>Omnifood &mdash; Never cook again!</title>
 </head>
 <body>
   <header class="header">
@@ -29,15 +44,15 @@
 
     <nav class="main-nav">
       <ul class="main-nav-list">
-        <li><a href="#" class="main-nav-link">How it works</a></li>
-        <li><a href="#" class="main-nav-link">Meals</a></li>
-        <li><a href="#" class="main-nav-link">Testimonials</a></li>
-        <li><a href="#" class="main-nav-link">Pricing</a></li>
-        <li><a href="#" class="main-nav-link nav-cta">Try for free</a></li>
+        <li><a href="#how" class="main-nav-link">How it works</a></li>
+        <li><a href="#meals" class="main-nav-link">Meals</a></li>
+        <li><a href="#testimonials" class="main-nav-link">Testimonials</a></li>
+        <li><a href="#pricing" class="main-nav-link">Pricing</a></li>
+        <li><a href="#cta" class="main-nav-link nav-cta">Try for free</a></li>
       </ul>
     </nav>
 
-    <button class="btn-mobile-nav"><ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon><ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon></button>
+    <button class="btn-mobile-nav" aria-label="Menu Button"><ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon><ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon></button>
   </header>
   <main>
     <section class="section-hero">
@@ -47,10 +62,10 @@
           <p class="hero-description">
             The smart 365-days-per-year food subscription that will make you eat healthy again. Tailored to your personal tastes and nutritional needs.
           </p>
-          <a href="#" class="btn btn--full margin-right-sm">Start eating well</a>
-          <a href="#" class="btn btn--outline">Learn more &darr;</a>
-          <div class="delivered-meals">
-            <div class="deliverd-imgs">
+          <a href="#cta" class="btn btn--full margin-right-sm">Start eating well</a>
+          <a href="#how" class="btn btn--outline">Learn more &darr;</a>
+          <div class="delivered-faces">
+            <div class="delivered-imgs">
               <img src="img/customers/customer-1.jpg" alt="Customer Photo">
               <img src="img/customers/customer-2.jpg" alt="Customer Photo">
               <img src="img/customers/customer-3.jpg" alt="Customer Photo">
@@ -62,7 +77,12 @@
           </div>
         </div>
         <div class="hero-img-box">
-          <img src="img/hero.png" class="hero-img" alt="Woman enjoying food, meals in storage container, and food bowls on a table">
+          <picture> <!-- The browser will select which one can display the best -->
+            <source srcset="img/hero.webp" type="image/webp" />
+            <source srcset="img/hero-min.png" type="image/png" />
+            <img src="img/hero-min.png" class="hero-img" alt="Woman enjoying food, meals in storage container, and food bowls on a table">
+          </picture>
+          <!-- <img src="img/hero.webp" class="hero-img" alt="Woman enjoying food, meals in storage container, and food bowls on a table"> -->
         </div>
       </div>
     </section>
@@ -80,7 +100,7 @@
         </div>
       </div>
     </section>
-    <section class="section-how">
+    <section id="how" class="section-how">
       <div class="container">
         <span class="sub-heading">How it works</span>
         <h2 class="heading-secondary">Your daily dose of health in 3 simple steps</h2>
@@ -116,7 +136,7 @@
       </div>
       </div>
     </section>
-    <section class="section-meals">
+    <section id="meals" class="section-meals">
       <div class="container center-text">
         <span class="sub-heading">Meals</span>
         <h2 class="heading-secondary">
@@ -188,7 +208,7 @@
         <a href="#" class="link">See all recipes &rarr;</a>
       </div>
     </section>
-    <section class="section-testimonials">
+    <section id="testimonials" class="section-testimonials">
       <div class="testimonials-container">
         <span class="sub-heading">Testimonials</span>
         <h2 class="heading-secondary">
@@ -257,7 +277,7 @@
         </figure>
       </div>
     </section>
-    <section class="section-pricing">
+    <section id="pricing" class="section-pricing">
       <div class="container">
         <span class="sub-heading">Pricing</span>
         <h2 class="heading-secondary">
@@ -358,7 +378,7 @@
         </div>
       </div>
     </section>
-    <section class="section-cta">
+    <section id="cta" class="section-cta">
       <div class="container">
         <div class="cta">
           <div class="cta-text-box">
@@ -402,16 +422,16 @@
         </a>
         <ul class="social-links">
           <li>
-            <a href="#" class="footer-link"><ion-icon class="social-icon" name="logo-instagram"></ion-icon></a>
+            <a href="#" class="footer-link" aria-label="Omnifood's Instagram"><ion-icon class="social-icon" name="logo-instagram"></ion-icon></a>
           </li>
           <li>
-            <a href="#" class="footer-link"><ion-icon class="social-icon" name="logo-facebook"></ion-icon></a>
+            <a href="#" class="footer-link" aria-label="Omnifood's Facebook"><ion-icon class="social-icon" name="logo-facebook"></ion-icon></a>
           </li>
           <li>
-            <a href="#" class="footer-link"><ion-icon class="social-icon" name="logo-twitter"></ion-icon></a>
+            <a href="#" class="footer-link" aria-label="Omnifood's Twitter"><ion-icon class="social-icon" name="logo-twitter"></ion-icon></a>
           </li>
         </ul>
-        <p class="copyright">Copyright &copy; 2027 by Omnifood, Inc. All rights reserved.</p>
+        <p class="copyright">Copyright &copy; <span class="year">2027</span> by Omnifood, Inc. All rights reserved.</p>
       </div>
       <div class="address-col">
         <p class="footer-heading">Contact-us</p>
